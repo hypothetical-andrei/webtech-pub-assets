@@ -1,7 +1,7 @@
 import { shallowEqual, useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react'
 
-import { addNote } from '../actions/actions'
+import { addNote, deleteNote } from '../actions/actions'
 
 const noteListSelector = state => state.list.notes
 
@@ -16,7 +16,12 @@ const NoteList = (props) => {
       <div>
         <h3>list of notes</h3>
         {
-          notes.map((e, i) => <div key={i}>{e}</div>)
+          notes.map((e, i) => 
+            <div key={i}>
+              {e}
+              <input type='button' value='delete' onClick={() => dispatch(deleteNote(i))} />
+            </div>
+          )
         }
       </div>
       <div>
