@@ -14,7 +14,8 @@ const sequelize = new Sequelize({
 
 const Book = sequelize.define('book', {
   title: Sequelize.STRING,
-  content: Sequelize.TEXT
+  content: Sequelize.TEXT,
+  pageCount: Sequelize.INTEGER
 })
 
 const Chapter = sequelize.define('chapter', {
